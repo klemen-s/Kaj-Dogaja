@@ -1,0 +1,3 @@
+[submodule "kd-server"]
+	path = kd-server
+	url = https://github.com/avgJoe1/kd-server.git

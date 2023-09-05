@@ -1,0 +1,13 @@
+.navbar {
+  width: 100%;
+  height: 6.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #DBDBDB;
+}
+
+.navbar-title {
+    color: var(--main-color);
+    font-size: 2.25rem;
+}

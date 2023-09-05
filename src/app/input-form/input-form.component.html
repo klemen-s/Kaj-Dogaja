@@ -1,0 +1,37 @@
+<div class="select-trip">
+  <div class="input-element">
+    <select class="input-select" [(ngModel)]="selectedTripType" id="tripType">
+      <option value="" disabled selected hidden>Trip Type</option>
+      <option value="Nature">Nature</option>
+      <option value="Culture">Culture</option>
+      <option value="Sport">Sports</option>
+    </select>
+  </div>
+  <div class="input-element">
+    <select class="input-select" [(ngModel)]="selectedRegion" id="region">
+      <option value="" disabled selected hidden>Region</option>
+      <option value="Gorenjska">Gorenjska</option>
+    </select>
+  </div>
+  <div class="input-element">
+    <select class="input-select" [(ngModel)]="selectedBudget" id="budget">
+      <option value="" disabled selected hidden>Budget</option>
+      <option value="0">All</option>
+      <option value="1">Cheap</option>
+      <option value="2">Medium</option>
+      <option value="3">Expensive</option>
+    </select>
+  </div>
+  <button
+    class="submit-button"
+    (click)="getPlaces(selectedTripType, selectedBudget, selectedRegion)"
+  >
+    Najdi svoj izlet
+  </button>
+  <div class="error-msg" *ngIf="errorMsg">
+    <p class="dialogue-text">{{ errorMsg }}</p>
+  </div>
+  <div class="info-msg" *ngIf="infoMsg">
+    <p class="dialogue-text">{{ infoMsg }}</p>
+  </div>
+</div>

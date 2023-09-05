@@ -1,0 +1,11 @@
+.places-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  margin-bottom: 3rem;
+}

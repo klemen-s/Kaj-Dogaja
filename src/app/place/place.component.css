@@ -1,0 +1,42 @@
+.place {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dbdbdb;
+  border-radius: 1.25rem;
+  color: #656565;
+  height: 11rem;
+}
+
+.place-upper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 10px;
+  box-sizing: border-box;
+  color: var(--main-color);
+}
+
+.place-title {
+  text-align: start;
+  font-size: 1.4rem;
+}
+
+.place-description {
+  padding: 10px;
+  text-align: start;
+  font-family: "SF-Regular";
+}
+
+.attractions {
+  width: 100%;
+  font-size: 0.8rem;
+  font-family: "SF-Regular";
+  padding: 10px;
+  text-align: start;
+  box-sizing: border-box;
+}
