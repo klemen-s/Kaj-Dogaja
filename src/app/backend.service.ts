@@ -12,8 +12,22 @@ export class BackendService {
   private places = new BehaviorSubject<any>([]);
   private places$ = this.places.asObservable();
 
+  // observable za place-detail
+  private place = new BehaviorSubject<any>({});
+  private place$ = this.place.asObservable();
+
   constructor(private http: HttpClient) {}
 
+  // za dobivanje enega kraja
+  showPlace() {
+    return this.place$;
+  }
+
+  setPlace(value: any) {
+    return this.place.next(value);
+  }
+
+  // za dobivanje vseh krajev z določenimi filtri
   showPlaces() {
     return this.places$;
   }
@@ -23,8 +37,6 @@ export class BackendService {
   }
 
   errorHandler(error: any) {
-    console.log(error);
-
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       // client-side error
@@ -39,7 +51,11 @@ export class BackendService {
     });
   }
 
-  getPlaces(tripType: string, budget: number, region: string) {
+  getPlaces(
+    tripType: string,
+    budget: number,
+    region: string
+  ): Observable<Place[]> {
     const params = new HttpParams()
       .set('region', region)
       .set('tripType', tripType)
@@ -57,4 +73,10 @@ export class BackendService {
   //     })
   //     .pipe(catchError(this.errorHandler));
   // }
+
+  getPlace(placeId: string) {
+    return this.http
+      .get<any>('http://localhost:8080/places/' + placeId)
+      .pipe(catchError(this.errorHandler));
+  }
 }

@@ -1,8 +1,9 @@
-<div class="place">
+<div class="place" (click)="getPlace()">
   <div class="place-upper">
     <h1 class="place-title">{{ this.place.placeName }}</h1>
     <span class="place-budget">{{ getBudget() }}</span>
   </div>
-  <p class="place-description">{{ this.place.description }}</p>
-  <p class="attractions">Par zanimivosti: {{ getAttractions() }}</p>
+  <div class="place-lower">
+    <p class="place-description">{{ this.place.description }}</p>
+  </div>
 </div>

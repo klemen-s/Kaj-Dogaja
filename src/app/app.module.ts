@@ -11,6 +11,7 @@ import { InputElementComponent } from './input-element/input-element.component';
 import { PlacesComponent } from './places/places.component';
 import { InputFormComponent } from './input-form/input-form.component';
 import { PlaceComponent } from './place/place.component';
+import { PlaceDetailComponent } from './place-detail/place-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PlaceComponent } from './place/place.component';
     InputElementComponent,
     PlacesComponent,
     InputFormComponent,
-    PlaceComponent
+    PlaceComponent,
+    PlaceDetailComponent
   ],
   imports: [
     BrowserModule,

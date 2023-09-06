@@ -7,7 +7,7 @@
   border: 1px solid #dbdbdb;
   border-radius: 1.25rem;
   color: #656565;
-  height: 11rem;
+  max-height: 8rem;
 }
 
 .place-upper {
@@ -26,9 +26,16 @@
   font-size: 1.4rem;
 }
 
+.place-lower {
+  width: 90%;
+  height: 6rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .place-description {
-  padding: 10px;
-  text-align: start;
+  padding: 1rem 0;
   font-family: "SF-Regular";
 }
 
