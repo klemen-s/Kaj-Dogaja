@@ -1,25 +1,43 @@
 <div class="select-trip">
-  <div class="input-element">
-    <select class="input-select" [(ngModel)]="selectedTripType" id="tripType">
-      <option value="" disabled selected hidden>Trip Type</option>
-      <option value="Nature">Nature</option>
-      <option value="Culture">Culture</option>
-      <option value="Sport">Sports</option>
+  <div id="trip-type">
+    <div class="error-msg-trip-type" *ngIf="tripTypeError">
+      <p>{{ tripTypeErrorMessage }}</p>
+    </div>
+    <select
+      [class]="{
+        'input-select': tripTypeError === false,
+        'error-input-select': tripTypeError === true
+      }"
+      [(ngModel)]="selectedTripType"
+    >
+      <option value="" disabled selected hidden>Tip Izleta</option>
+      <option value="Nature">Narava</option>
+      <option value="Culture">Kultura</option>
+      <option value="Sport">Šport</option>
     </select>
   </div>
-  <div class="input-element">
-    <select class="input-select" [(ngModel)]="selectedRegion" id="region">
-      <option value="" disabled selected hidden>Region</option>
+  <div id="region">
+    <div class="error-msg-region" *ngIf="regionError">
+      <p>{{ regionErrorMessage }}</p>
+    </div>
+    <select
+      [class]="{
+        'input-select': regionError === false,
+        'error-input-select': regionError === true
+      }"
+      [(ngModel)]="selectedRegion"
+    >
+      <option value="" disabled selected hidden>Regija</option>
       <option value="Gorenjska">Gorenjska</option>
     </select>
   </div>
-  <div class="input-element">
+  <div id="budget">
     <select class="input-select" [(ngModel)]="selectedBudget" id="budget">
       <option value="" disabled selected hidden>Budget</option>
-      <option value="0">All</option>
-      <option value="1">Cheap</option>
-      <option value="2">Medium</option>
-      <option value="3">Expensive</option>
+      <option value="0">Vsi</option>
+      <option value="1">Poceni</option>
+      <option value="2">Srednje</option>
+      <option value="3">Drago</option>
     </select>
   </div>
   <button
@@ -28,9 +46,7 @@
   >
     Najdi svoj izlet
   </button>
-  <div class="error-msg" *ngIf="errorMsg">
-    <p class="dialogue-text">{{ errorMsg }}</p>
-  </div>
+
   <div class="info-msg" *ngIf="infoMsg">
     <p class="dialogue-text">{{ infoMsg }}</p>
   </div>

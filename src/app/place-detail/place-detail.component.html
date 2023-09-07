@@ -1,3 +1,13 @@
-<div>
-    Work in progress...
+<div *ngIf="place" class="place-detail-wrapper">
+  <div class="place-detail-image-wrapper">
+    <img
+      class="place-detail-image"
+      src=""
+      alt="place-image"
+    />
+  </div>
+  <div>
+    <h1 class="place-detail-title">{{ this.place.placeName }}</h1>
+    <p class="place-detail-description">{{ this.place.description }}</p>
+  </div>
 </div>

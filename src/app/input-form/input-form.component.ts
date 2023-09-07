@@ -12,22 +12,38 @@ export class InputFormComponent {
   selectedRegion: string = '';
   selectedBudget: number = 0;
 
+  regionError: boolean = false;
+  tripTypeError: boolean = false;
+
+  regionErrorMessage: string = '';
+  tripTypeErrorMessage: string = '';
+
   errorMsg?: string;
   infoMsg?: string;
 
   constructor(private backend: BackendService, private router: Router) {}
 
   getPlaces(tripType: string, budget: number, region: string) {
-    if (tripType == '' || this.selectedRegion == '') {
-      this.errorMsg = 'Please enter all missing inputs.';
+    if (tripType == '') {
+      this.tripTypeErrorMessage = 'Prosim, če izbereš tip izleta.';
+      this.tripTypeError = true;
       return;
     }
+    this.tripTypeError = false;
+
+    if (region == '') {
+      this.regionErrorMessage = 'Prosim, če izbereš regijo izleta.';
+      this.regionError = true;
+      return;
+    }
+
+    this.regionError = false;
 
     return this.backend.getPlaces(tripType, budget, region).subscribe({
       next: (value: any) => {
         if (value.statusCode === 422) {
           this.errorMsg = value.message;
-           this.infoMsg = undefined;
+          this.infoMsg = undefined;
           return;
         }
 

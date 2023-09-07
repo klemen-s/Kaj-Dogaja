@@ -79,4 +79,11 @@ export class BackendService {
       .get<any>('http://localhost:8080/places/' + placeId)
       .pipe(catchError(this.errorHandler));
   }
+
+  getPlaceDetails(placeId: string) {
+    this.getPlace(placeId).subscribe({
+      next: ({place}) => {
+        this.setPlace(place);
+    } });
+  }
 }

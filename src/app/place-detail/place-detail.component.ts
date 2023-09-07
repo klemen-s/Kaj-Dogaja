@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../backend.service';
 import { Place } from '../place';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-place-detail',
@@ -8,18 +9,24 @@ import { Place } from '../place';
   styleUrls: ['./place-detail.component.css'],
 })
 export class PlaceDetailComponent implements OnInit {
-  place?: any;
+  place: any;
 
-  constructor(private backend: BackendService) {}
-
-  getPlaceDetails() {
-    this.backend.showPlace().subscribe((place) => {
-      this.place = place;
-      console.log(this.place);
-    });
-  }
+  constructor(private backend: BackendService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.getPlaceDetails();
+    // parametri iz URL-ja
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('placeId');
+
+      if (id) {
+        this.backend.getPlaceDetails(id);
+        this.backend.showPlace().subscribe({
+          next: (place) => {
+            this.place = place;
+          },
+          error: (err) => console.log(err),
+        });
+      }
+    });
   }
 }

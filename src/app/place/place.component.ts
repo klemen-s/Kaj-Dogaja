@@ -45,15 +45,9 @@ export class PlaceComponent {
     return attractions;
   }
 
-  // v place-detail komponento dobimo podrobnosti tega "place-a"
   getPlace() {
     try {
-      this.backend.getPlace(this.place._id).subscribe((value) => {
-        // nastavimo našemu "place" spremenljivki vrednost "place-a", ki jo delimo preko nepovezanih komponentov
-        // nato se pa naročimo place$ v place-detail komponenti
-        this.backend.setPlace(value.place);
-        this.router.navigate(['/places/' + this.place._id]);
-      });
+      this.router.navigate(['/places/' + this.place._id]);
     } catch (error) {}
   }
 }
