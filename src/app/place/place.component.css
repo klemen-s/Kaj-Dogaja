@@ -8,6 +8,7 @@
   border-radius: 1.25rem;
   color: #656565;
   max-height: 8rem;
+  cursor: pointer;
 }
 
 .place-upper-wrapper {

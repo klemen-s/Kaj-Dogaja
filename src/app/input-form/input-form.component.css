@@ -6,6 +6,7 @@
   border-radius: 1.25rem;
   border: none;
   font-size: 1.25rem;
+  cursor: pointer;
 }
 
 .select-trip {
@@ -52,7 +53,7 @@
   box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
-
+  cursor: pointer;
   background-image: linear-gradient(
       45deg,
       transparent 50%,
@@ -108,17 +109,15 @@
 }
 
 .info-msg {
-  width: 16rem;
+  width: 90%;
   height: 4rem;
   color: white;
-  background-color: rgb(160 160 160);
-  border: 1px solid rgb(103 103 103);
-  border-radius: 2.5rem;
+  color: rgb(192, 192, 192);
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   font-family: "SF-Regular";
 }
 

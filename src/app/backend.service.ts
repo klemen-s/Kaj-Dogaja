@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, throwError, Observable, BehaviorSubject } from 'rxjs';
 import { Place } from './place';
+import { QueryParamsService } from './query-params.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,10 @@ export class BackendService {
   private place = new BehaviorSubject<any>({});
   private place$ = this.place.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private querySParamsService: QueryParamsService,
+  ) {}
 
   // za dobivanje enega kraja
   showPlace() {
@@ -61,6 +65,13 @@ export class BackendService {
       .set('tripType', tripType)
       .set('budget', budget);
 
+    // nastavimo parametre za queryParamsService
+    this.querySParamsService.setQueryParams({
+      tripType: tripType,
+      region: region,
+      budget: budget,
+    });
+
     return this.http
       .get<Place[]>('http://localhost:8080/get-places', { params: params })
       .pipe(catchError(this.errorHandler));
@@ -87,6 +98,4 @@ export class BackendService {
       },
     });
   }
-
- 
 }
