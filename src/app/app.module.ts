@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { WrapperComponent } from './wrapper/wrapper.component';
-import { InputElementComponent } from './input-element/input-element.component';
 import { PlacesComponent } from './places/places.component';
 import { InputFormComponent } from './input-form/input-form.component';
 import { PlaceComponent } from './place/place.component';
@@ -18,7 +17,6 @@ import { PlaceDetailComponent } from './place-detail/place-detail.component';
     AppComponent,
     NavbarComponent,
     WrapperComponent,
-    InputElementComponent,
     PlacesComponent,
     InputFormComponent,
     PlaceComponent,

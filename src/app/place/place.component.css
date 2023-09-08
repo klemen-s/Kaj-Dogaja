@@ -10,15 +10,20 @@
   max-height: 8rem;
 }
 
-.place-upper {
-  display: flex;
+.place-upper-wrapper {
   width: 100%;
+  height: 3rem;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.place-upper {
+  width: 90%;
+  height: 100%;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #dbdbdb;
-  padding: 10px;
-  box-sizing: border-box;
   color: var(--main-color);
+  margin: 0 auto;
 }
 
 .place-title {
@@ -37,5 +42,5 @@
 .place-description {
   padding: 1rem 0;
   font-family: "SF-Regular";
+  color: #aaa9a9
 }
-

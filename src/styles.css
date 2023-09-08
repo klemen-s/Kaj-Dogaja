@@ -4,6 +4,9 @@
    License: none (public domain)
 */
 
+* {
+  box-sizing: border-box;
+}
 
 html,
 body,
@@ -146,5 +149,5 @@ table {
 }
 
 :root {
-  --main-color: #E55325;
+  --main-color: #e55325;
 }

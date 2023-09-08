@@ -1,13 +1,25 @@
-<div *ngIf="place" class="place-detail-wrapper">
+<div class="place-detail-wrapper">
   <div class="place-detail-image-wrapper">
     <img
       class="place-detail-image"
-      src=""
+      src="{{ this.place.imageUrl }}"
       alt="place-image"
     />
   </div>
-  <div>
-    <h1 class="place-detail-title">{{ this.place.placeName }}</h1>
-    <p class="place-detail-description">{{ this.place.description }}</p>
+  <div class="place-detail-info">
+    <div class="place-detail-upper-wrapper">
+      <div class="place-detail-upper">
+        <h1 class="place-detail-title">{{ this.place.placeName }}</h1>
+        <p class="place-detail-budget">Price: {{ getBudget() }}</p>
+      </div>
+    </div>
+    <div class="place-detail-lower">
+      <p class="place-detail-attractions">
+        <span>Zanimivosti:</span>
+        {{ this.place.attractions ? getAttractions() : "" }}
+      </p>
+      <br />
+      <p class="place-detail-description">{{ this.place.description }}</p>
+    </div>
   </div>
 </div>

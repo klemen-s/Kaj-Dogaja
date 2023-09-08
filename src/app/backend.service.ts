@@ -66,13 +66,13 @@ export class BackendService {
       .pipe(catchError(this.errorHandler));
   }
 
-  // postPlace() {
-  //   return this.http
-  //     .post('http://localhost:8080/post-places', {
-  //       headers: this.headers,
-  //     })
-  //     .pipe(catchError(this.errorHandler));
-  // }
+  postPlace() {
+    return this.http
+      .post('http://localhost:8080/post-places', {
+        headers: this.headers,
+      })
+      .pipe(catchError(this.errorHandler));
+  }
 
   getPlace(placeId: string) {
     return this.http
@@ -82,8 +82,11 @@ export class BackendService {
 
   getPlaceDetails(placeId: string) {
     this.getPlace(placeId).subscribe({
-      next: ({place}) => {
+      next: ({ place }) => {
         this.setPlace(place);
-    } });
+      },
+    });
   }
+
+ 
 }

@@ -60,12 +60,12 @@ export class InputFormComponent {
     });
   }
 
-  // postPlaces() {
-  //   return this.backend.postPlace().subscribe({
-  //     next: (value) => {
-  //       console.log(value);
-  //     },
-  //     error: (err) => console.log(err),
-  //   });
-  // }
+  postPlaces() {
+    return this.backend.postPlace().subscribe({
+      next: (value) => {
+        console.log(value);
+      },
+      error: (err) => console.log(err),
+    });
+  }
 }

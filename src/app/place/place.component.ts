@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { BackendService } from '../backend.service';
 import { Router } from '@angular/router';
+import { UtilService } from '../util.service';
 
 @Component({
   selector: 'app-place',
@@ -16,38 +17,23 @@ export class PlaceComponent {
     _id: '',
   };
 
-  constructor(private backend: BackendService, private router: Router) {}
+  constructor(
+    private backend: BackendService,
+    private router: Router,
+    private util: UtilService
+  ) {}
 
   getBudget(): string {
-    switch (this.place.budget) {
-      case 1:
-        return '€';
-      case 2:
-        return '€€';
-      case 3:
-        return '€€€';
-      default:
-        return 'No budget';
-    }
-  }
-
-  getAttractions(): string {
-    let attractions = '';
-
-    for (let attraction of this.place.attractions) {
-      if (attractions.length > 0) {
-        attractions += ', ' + attraction;
-      } else {
-        attractions += attraction;
-      }
-    }
-
-    return attractions;
+    return this.util.getBudget(this.place.budget);
   }
 
   getPlace() {
     try {
       this.router.navigate(['/places/' + this.place._id]);
     } catch (error) {}
+  }
+
+  getQuickSummary(): string {
+    return this.place.description.substring(0, 99) + '...';
   }
 }

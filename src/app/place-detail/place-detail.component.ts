@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../backend.service';
-import { Place } from '../place';
 import { ActivatedRoute } from '@angular/router';
+import { UtilService } from '../util.service';
 
 @Component({
   selector: 'app-place-detail',
@@ -11,7 +11,11 @@ import { ActivatedRoute } from '@angular/router';
 export class PlaceDetailComponent implements OnInit {
   place: any;
 
-  constructor(private backend: BackendService, private route: ActivatedRoute) {}
+  constructor(
+    private backend: BackendService,
+    private route: ActivatedRoute,
+    private util: UtilService
+  ) {}
 
   ngOnInit(): void {
     // parametri iz URL-ja
@@ -28,5 +32,21 @@ export class PlaceDetailComponent implements OnInit {
         });
       }
     });
+  }
+
+  getBudget(): string {
+    if (!this.place) {
+      return '';
+    }
+
+    return this.util.getBudget(this.place.budget);
+  }
+
+  getAttractions(): string {
+    if (!this.place) {
+      return '';
+    }
+
+    return this.util.getAttractions(this.place);
   }
 }

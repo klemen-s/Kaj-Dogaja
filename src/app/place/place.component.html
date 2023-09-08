@@ -1,9 +1,11 @@
 <div class="place" (click)="getPlace()">
-  <div class="place-upper">
-    <h1 class="place-title">{{ this.place.placeName }}</h1>
-    <span class="place-budget">{{ getBudget() }}</span>
+  <div class="place-upper-wrapper">
+    <div class="place-upper">
+      <h1 class="place-title">{{ this.place.placeName }}</h1>
+      <span class="place-budget">{{ getBudget() }}</span>
+    </div>
   </div>
   <div class="place-lower">
-    <p class="place-description">{{ this.place.description }}</p>
+    <p class="place-description">{{ getQuickSummary() }}</p>
   </div>
 </div>
