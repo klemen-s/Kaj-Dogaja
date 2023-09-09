@@ -1,0 +1,17 @@
+<div class="login-wrapper">
+  <div class="login">
+    <div class="login-element">
+      <label for="username">Username</label>
+      <input [(ngModel)]="username" name="username" type="text" id="username" />
+    </div>
+    <div class="login-element">
+      <label for="password">Password</label>
+      <input [(ngModel)]="password" name="password" type="password" id="password" />
+    </div>
+    <button class="login-btn" (click)="register(username, password)">
+      Login
+    </button>
+  </div>
+</div>
+
+
