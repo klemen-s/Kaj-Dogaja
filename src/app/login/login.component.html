@@ -1,17 +1,25 @@
 <div class="login-wrapper">
   <div class="login">
     <div class="login-element">
-      <label for="username">Username</label>
-      <input [(ngModel)]="username" name="username" type="text" id="username" />
+      <input
+        [(ngModel)]="username"
+        name="username"
+        type="text"
+        id="username"
+        placeholder="Username"
+      />
+      <p class="login-error-msg" *ngIf="usernameError">{{ usernameError }}</p>
     </div>
     <div class="login-element">
-      <label for="password">Password</label>
-      <input [(ngModel)]="password" name="password" type="password" id="password" />
+      <input
+        [(ngModel)]="password"
+        name="password"
+        type="password"
+        id="password"
+        placeholder="Password"
+      />
+      <p class="login-error-msg" *ngIf="passwordError">{{ passwordError }}</p>
     </div>
-    <button class="login-btn" (click)="register(username, password)">
-      Login
-    </button>
+    <button class="login-btn" (click)="login()">Login</button>
   </div>
 </div>
-
-

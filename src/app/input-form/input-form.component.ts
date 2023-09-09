@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './input-form.component.html',
   styleUrls: ['./input-form.component.css'],
 })
-export class InputFormComponent {
+export class InputFormComponent  {
   selectedTripType: string = '';
   selectedRegion: string = '';
   selectedBudget: number = 0;
@@ -21,7 +21,13 @@ export class InputFormComponent {
   errorMsg?: string;
   infoMsg?: string;
 
-  constructor(private backend: BackendService, private router: Router) {}
+  isAuth: boolean = false;
+
+  constructor(
+    private backend: BackendService,
+    private router: Router,
+  ) {}
+
 
   getPlaces(tripType: string, budget: number, region: string) {
     if (tripType == '') {
@@ -61,7 +67,7 @@ export class InputFormComponent {
   }
 
   postPlaces() {
-    return this.backend.postPlace().subscribe({
+    return this.backend.postPlace()?.subscribe({
       next: (value) => {
         console.log(value);
       },

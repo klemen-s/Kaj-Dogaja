@@ -53,4 +53,12 @@
   color: white;
   background-color: var(--main-color);
   cursor: pointer;
+  margin-top: 1.5rem;
+}
+
+.login-error-msg {
+  width: 100%;
+  font-size: 0.65rem;
+  margin-top: 0.3rem;
+  margin-left: 0.3rem;
 }

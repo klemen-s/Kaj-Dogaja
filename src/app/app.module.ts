@@ -12,6 +12,7 @@ import { InputFormComponent } from './input-form/input-form.component';
 import { PlaceComponent } from './place/place.component';
 import { PlaceDetailComponent } from './place-detail/place-detail.component';
 import { LoginComponent } from './login/login.component';
+import { PostPlaceComponent } from './post-place/post-place.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './login/login.component';
     InputFormComponent,
     PlaceComponent,
     PlaceDetailComponent,
-    LoginComponent
+    LoginComponent,
+    PostPlaceComponent
   ],
   imports: [
     BrowserModule,

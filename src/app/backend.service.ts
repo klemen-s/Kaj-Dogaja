@@ -8,7 +8,7 @@ import { QueryParamsService } from './query-params.service';
   providedIn: 'root',
 })
 export class BackendService {
-  headers = new HttpHeaders().set('content-type', 'application/json');
+  headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   private places = new BehaviorSubject<any>([]);
   private places$ = this.places.asObservable();
@@ -19,7 +19,7 @@ export class BackendService {
 
   constructor(
     private http: HttpClient,
-    private querySParamsService: QueryParamsService,
+    private querySParamsService: QueryParamsService
   ) {}
 
   // za dobivanje enega kraja
@@ -49,7 +49,6 @@ export class BackendService {
       // server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    console.log(errorMessage);
     return throwError(() => {
       return errorMessage;
     });
@@ -78,10 +77,20 @@ export class BackendService {
   }
 
   postPlace() {
+    const jwt = localStorage.getItem('jwt')
+
+    const postHeaders = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${jwt}`);
+
     return this.http
-      .post('http://localhost:8080/post-places', {
-        headers: this.headers,
-      })
+      .post(
+        'http://localhost:8080/post-places',
+        { message: 'Arrived' }, // placeholder za, pozneje, podatke o novem izletu 
+        {
+          headers: postHeaders,
+        }
+      )
       .pipe(catchError(this.errorHandler));
   }
 
@@ -97,5 +106,15 @@ export class BackendService {
         this.setPlace(place);
       },
     });
+  }
+
+  login(username: string, password: string) {
+    return this.http
+      .post<any>(
+        'http://localhost:8080/admin/login',
+        { username: username, password: password },
+        { headers: this.headers }
+      )
+      .pipe(catchError(this.errorHandler));
   }
 }
