@@ -3,7 +3,7 @@
     <h1 class="post-place-title">Objavi Nov Izlet</h1>
     <form class="post-place-form">
       <div class="form-group">
-        <label for="placeName">Ime Kraja Izleta</label>
+        <label for="placeName">Ime Kraja / Izleta</label>
         <input type="text" id="placeName" required />
       </div>
       <div class="form-group">
@@ -24,13 +24,21 @@
           <option *ngFor="let reg of region" value="reg">{{ reg }}</option>
         </select>
       </div>
-      <div>
+      <div class="form-group">
         <label for="budget">Cena Izleta</label>
         <select name="budget" id="budget">
           <option *ngFor="let bud of budget" value="bud">
             {{ setBudget(bud) }}
           </option>
         </select>
+      </div>
+      <div class="form-group-added-button">
+        <label for="attractions">Opis Kraja / Izleta</label>
+        <input type="text" id="attractions" />
+        <button class="attractions-button">Dodaj zanimivost</button>
+      </div>
+      <div class="form-submit">
+        <button class="submit-btn">Dodaj Izlet</button>
       </div>
     </form>
   </div>

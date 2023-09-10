@@ -1,0 +1,168 @@
+.post-place-wrapper {
+  width: 100%;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-place-container {
+  height: 100%;
+  width: 90%;
+  border: 1px solid #bebebe;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 2rem;
+  color: black;
+  font-family: "SF-Regular";
+}
+
+.post-place-title {
+  font-size: 1.5rem;
+}
+
+.post-place-form {
+  width: 100%;
+  height: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 3.5rem;
+  margin: 1rem auto;
+  font-size: 0.8rem;
+}
+
+.form-group label {
+  margin-left: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.form-group input {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  border: 1px solid #bebebe;
+  padding: 5px;
+  font-family: "SF-Medium";
+}
+
+.form-group input:focus {
+  outline: none !important;
+  border: 1px solid var(--main-color);
+  color: #5a5a5a;
+  font-family: "SF-Medium";
+}
+
+.form-group select {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  border: 1px solid #bebebe;
+
+  font-family: "SF-Medium";
+  background-color: white;
+  color: black;
+  margin: 0;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  background-image: linear-gradient(
+      45deg,
+      transparent 50%,
+      var(--main-color) 50%
+    ),
+    linear-gradient(135deg, var(--main-color) 50%, transparent 50%),
+    linear-gradient(to right, white, white);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
+.form-group select:focus {
+  background-image: linear-gradient(
+      45deg,
+      var(--main-color) 50%,
+      transparent 50%
+    ),
+    linear-gradient(135deg, transparent 50%, var(--main-color) 50%),
+    linear-gradient(to right, white, white);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+  background-repeat: no-repeat;
+  border-color: var(--main-color);
+  outline: 0;
+}
+
+.form-group-added-button label {
+  margin-left: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.form-group-added-button {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 7.625rem;
+  margin: 1rem auto;
+  font-size: 0.8rem;
+}
+
+.form-group-added-button input {
+  width: 100%;
+  height: 30%;
+  border-radius: 1rem;
+  border: 1px solid #bebebe;
+  padding: 5px;
+  font-family: "SF-Medium";
+}
+
+.form-group-added-button input:focus {
+  outline: none !important;
+  border: 1px solid var(--main-color);
+  color: #5a5a5a;
+  font-family: "SF-Medium";
+}
+
+.attractions-button {
+  cursor: pointer;
+  margin-top: 1rem;
+  border: none;
+  height: 2rem;
+  width: 50%;
+  border-radius: 1rem;
+  background-color: #bebebe;
+  color: white;
+  font-family: "SF-Medium";
+  font-size: 0.8rem;
+}
+
+.form-submit {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.submit-btn {
+  height: 3rem;
+  width: 50%;
+  margin: 0 auto;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  background-color: var(--main-color);
+  font-family: "SF-Medium";
+  font-size: 1.3rem;
+  cursor: pointer;
+}
