@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BackendService } from '../backend.service';
+import { UtilService } from '../util.service';
 
 @Component({
   selector: 'app-post-place',
@@ -12,8 +13,12 @@ export class PostPlaceComponent {
   imageUrl?: string;
   description?: string;
   region = ['Gorenjska']; // regije še pridejo
-  budget = [0, 1, 2, 3];
+  budget = [1, 2, 3];
   attractions = [];
 
-  constructor(private backend: BackendService) {}
+  constructor(private backend: BackendService, private util: UtilService) {}
+
+  setBudget(value: number): string {
+    return this.util.setBudget(value);
+  }
 }

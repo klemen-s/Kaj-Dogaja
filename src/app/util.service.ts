@@ -20,11 +20,22 @@ export class UtilService {
     }
   }
 
+  setBudget(budget: number): string {
+    switch (budget) {
+      case 1:
+        return '€';
+      case 2:
+        return '€€';
+      default:
+        return '€€€';
+    }
+  }
+
   getAttractions(place: any): string {
     let attractions = '';
 
     if (!place) {
-      return "";
+      return '';
     }
 
     for (let attraction of place.attractions) {
