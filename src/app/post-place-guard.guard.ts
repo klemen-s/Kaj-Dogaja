@@ -14,7 +14,7 @@ export const postPlaceGuardGuard: CanActivateFn = (route, state) => {
     return of(false);
   }
 
-  return backend.postPlace().pipe(
+  return backend.isAuth().pipe(
     map((value: any) => {
       if (value.isAuth) {
         return true;

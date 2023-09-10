@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BackendService } from '../backend.service';
 
 @Component({
@@ -6,19 +6,14 @@ import { BackendService } from '../backend.service';
   templateUrl: './post-place.component.html',
   styleUrls: ['./post-place.component.css'],
 })
-export class PostPlaceComponent implements OnInit {
+export class PostPlaceComponent {
+  placeName?: string;
+  coordinates?: string; // oblika : "lat, lon"
+  imageUrl?: string;
+  description?: string;
+  region = ['Gorenjska']; // regije še pridejo
+  budget = [0, 1, 2, 3];
+  attractions = [];
+
   constructor(private backend: BackendService) {}
-
-  postPlace() {
-    this.backend.postPlace().subscribe({
-      next: (value) => {
-        console.log(value);
-      },
-      error: (err) => console.log(err),
-    });
-  }
-
-  ngOnInit(): void {
-    this.postPlace();
-  }
 }

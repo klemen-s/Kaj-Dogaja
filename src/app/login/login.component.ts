@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BackendService } from '../backend.service';
 import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +15,10 @@ export class LoginComponent {
   usernameError?: string;
   passwordError?: string;
 
-  constructor(private backend: BackendService, private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   login() {
-    this.backend.login(this.username, this.password).subscribe({
+    this.loginService.login(this.username, this.password).subscribe({
       next: (value) => {
         if (value.usernameError) {
           this.usernameError = value.usernameError;

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, throwError, Observable, BehaviorSubject } from 'rxjs';
 import { Place } from './place';
 import { QueryParamsService } from './query-params.service';
+import { ErrorService } from './error.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,8 @@ export class BackendService {
 
   constructor(
     private http: HttpClient,
-    private querySParamsService: QueryParamsService
+    private querySParamsService: QueryParamsService,
+    private errorHandler: ErrorService
   ) {}
 
   // za dobivanje enega kraja
@@ -38,20 +40,6 @@ export class BackendService {
 
   setPlaces(value: any) {
     return this.places.next(value);
-  }
-
-  errorHandler(error: any) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // client-side error
-      errorMessage = `Error: ${error.error.message}`;
-    } else {
-      // server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    return throwError(() => {
-      return errorMessage;
-    });
   }
 
   getPlaces(
@@ -73,11 +61,11 @@ export class BackendService {
 
     return this.http
       .get<Place[]>('http://localhost:8080/get-places', { params: params })
-      .pipe(catchError(this.errorHandler));
+      .pipe(catchError(this.errorHandler.errorHandler));
   }
 
   postPlace() {
-    const jwt = localStorage.getItem('jwt')
+    const jwt = localStorage.getItem('jwt');
 
     const postHeaders = new HttpHeaders()
       .set('Content-Type', 'application/json')
@@ -86,18 +74,32 @@ export class BackendService {
     return this.http
       .post(
         'http://localhost:8080/post-places',
-        { message: 'Arrived' }, // placeholder za, pozneje, podatke o novem izletu 
+        { message: 'Arrived' }, // placeholder za, pozneje, podatke o novem izletu
         {
           headers: postHeaders,
         }
       )
-      .pipe(catchError(this.errorHandler));
+      .pipe(catchError(this.errorHandler.errorHandler));
+  }
+
+  // funckija za preverjanje če imamo pravice za post-place pot
+  isAuth() {
+    // to vedno deluje, ker v post-place-guard pogledamo če imamo jwt token v localStorage, če ne že prej redirectamo.
+    const jwt = localStorage.getItem('jwt');
+
+    const authHeaders = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${jwt}`);
+
+    return this.http.get('http://localhost:8080/is-auth', {
+      headers: authHeaders,
+    });
   }
 
   getPlace(placeId: string) {
     return this.http
       .get<any>('http://localhost:8080/places/' + placeId)
-      .pipe(catchError(this.errorHandler));
+      .pipe(catchError(this.errorHandler.errorHandler));
   }
 
   getPlaceDetails(placeId: string) {
@@ -106,15 +108,5 @@ export class BackendService {
         this.setPlace(place);
       },
     });
-  }
-
-  login(username: string, password: string) {
-    return this.http
-      .post<any>(
-        'http://localhost:8080/admin/login',
-        { username: username, password: password },
-        { headers: this.headers }
-      )
-      .pipe(catchError(this.errorHandler));
   }
 }
