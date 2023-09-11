@@ -23,6 +23,7 @@
 
 .post-place-title {
   font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .post-place-form {
@@ -166,5 +167,3 @@
   font-size: 1.3rem;
   cursor: pointer;
 }
-
-

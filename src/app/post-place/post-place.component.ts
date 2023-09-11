@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { BackendService } from '../backend.service';
+import { Component, ViewChild } from '@angular/core';
 import { UtilService } from '../util.service';
+import { PostPlaceService } from '../post-place.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-post-place',
@@ -8,9 +9,11 @@ import { UtilService } from '../util.service';
   styleUrls: ['./post-place.component.css'],
 })
 export class PostPlaceComponent {
+  @ViewChild('postPlaceForm') postPlaceForm?: NgForm;
+
   budgetValues = [1, 2, 3];
 
-  placeName: string = '';
+  placeName: any = '';
   coordinates: string = ''; // oblika : "lat, lon"
   imageUrl: string = '';
   description: string = '';
@@ -19,7 +22,10 @@ export class PostPlaceComponent {
   attraction: string = '';
   attractions: string[] = [];
 
-  constructor(private backend: BackendService, private util: UtilService) {}
+  constructor(
+    private util: UtilService,
+    private postPlaceService: PostPlaceService
+  ) {}
 
   setBudget(value: number): string {
     return this.util.setBudget(value);
@@ -31,7 +37,12 @@ export class PostPlaceComponent {
     this.attraction = '';
   }
 
-  addPlace(): void {}
+  placeNameInvalid() {
+    return (
+      this.placeName.length < 2 &&
+      this.postPlaceForm?.controls['placeName'].touched
+    );
+  }
 
   onSubmit() {}
 }

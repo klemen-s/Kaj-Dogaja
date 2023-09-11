@@ -11,13 +11,11 @@
         <input
           type="text"
           id="placeName"
-          required
           [(ngModel)]="placeName"
           name="placeName"
           #placeNameVariable="ngModel"
-          required
         />
-        <div [hidden]="placeNameVariable.invalid">Error</div>
+        <div *ngIf="placeNameInvalid()" class="post-place-error">Error</div>
       </div>
       <div class="form-group">
         <label for="coordinates">Koordinate</label>
@@ -26,7 +24,6 @@
           id="coordinates"
           [(ngModel)]="coordinates"
           name="coordinates"
-          required
         />
       </div>
       <div class="form-group">
@@ -37,7 +34,6 @@
           required
           [(ngModel)]="imageUrl"
           name="imageUrl"
-          required
         />
       </div>
       <div class="form-group">
@@ -48,7 +44,6 @@
           required
           [(ngModel)]="description"
           name="description"
-          required
         />
       </div>
       <div class="form-group">
@@ -78,14 +73,7 @@
         </button>
       </div>
       <div class="form-submit">
-        <button
-          type="submit"
-          [disabled]="!postPlaceForm.form.valid"
-          class="submit-btn"
-          (click)="addPlace()"
-        >
-          Dodaj Izlet
-        </button>
+        <button type="submit" class="submit-btn">Dodaj Izlet</button>
       </div>
     </form>
   </div>

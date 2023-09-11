@@ -64,7 +64,7 @@ export class BackendService {
       .pipe(catchError(this.errorHandler.errorHandler));
   }
 
-  postPlace() {
+  postPlace(place: Place) {
     const jwt = localStorage.getItem('jwt');
 
     const postHeaders = new HttpHeaders()
@@ -74,7 +74,7 @@ export class BackendService {
     return this.http
       .post(
         'http://localhost:8080/post-places',
-        { message: 'Arrived' }, // placeholder za, pozneje, podatke o novem izletu
+        { place: { ...place } }, // placeholder za, pozneje, podatke o novem izletu
         {
           headers: postHeaders,
         }
