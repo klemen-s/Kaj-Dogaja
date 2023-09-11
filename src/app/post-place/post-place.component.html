@@ -1,5 +1,5 @@
 <div class="post-place-wrapper">
-  <div class="post-place-container">
+  <div class="post-place-container" *ngIf="!submitted">
     <h1 class="post-place-title">Objavi Nov Izlet</h1>
     <form
       (ngSubmit)="onSubmit()"
@@ -15,7 +15,15 @@
           name="placeName"
           #placeNameVariable="ngModel"
         />
-        <div *ngIf="placeNameInvalid()" class="post-place-error">Error</div>
+        <div *ngIf="placeNameInvalid()" class="post-place-error">
+          Prekratko ime za izlet.
+        </div>
+        <div
+          *ngIf="placeNameInvalidBackend && !placeNameInvalid()"
+          class="post-place-error"
+        >
+          {{ placeNameInvalidBackendValue }}
+        </div>
       </div>
       <div class="form-group">
         <label for="coordinates">Koordinate</label>
@@ -24,7 +32,11 @@
           id="coordinates"
           [(ngModel)]="coordinates"
           name="coordinates"
+          placeholder="Lat, Lon"
         />
+        <div *ngIf="coordinatesInvalid()" class="post-place-error">
+          Nepravilni podani koordinati.
+        </div>
       </div>
       <div class="form-group">
         <label for="imageUrl">URL Slike</label>
@@ -35,6 +47,7 @@
           [(ngModel)]="imageUrl"
           name="imageUrl"
         />
+        <div *ngIf="invalidUrl()" class="post-place-error">Nepravilen URL.</div>
       </div>
       <div class="form-group">
         <label for="description">Opis Kraja / Izleta</label>
@@ -45,11 +58,22 @@
           [(ngModel)]="description"
           name="description"
         />
+        <div *ngIf="invalidDescription()" class="post-place-error">
+          Prekratek opis.
+        </div>
       </div>
       <div class="form-group">
         <label for="region">Regija Izleta</label>
         <select id="region" [(ngModel)]="region" name="region">
-          <option *ngFor="let reg of region" [value]="reg">{{ reg }}</option>
+          <option *ngFor="let reg of regions" [value]="reg">{{ reg }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tripType">Tip Izleta</label>
+        <select id="tripType" name="tripType" [(ngModel)]="tripType">
+          <option *ngFor="let trip of tripTypes" [value]="trip">
+            {{ setTripType(trip) }}
+          </option>
         </select>
       </div>
       <div class="form-group">
@@ -68,13 +92,29 @@
           [(ngModel)]="attraction"
           name="attraction"
         />
-        <button class="attractions-button" (click)="addAttraction()">
+        <button
+          class="attractions-button"
+          type="button"
+          (click)="addAttraction()"
+        >
           Dodaj zanimivost
         </button>
+        <div class="attractions-number">
+          Število trenutnih zanimivosti: {{ this.attractions.length }}
+        </div>
+        <div *ngIf="attractionsError" class="post-place-error-added-button">
+          Dodaj vsaj 2 zanimivosti.
+        </div>
       </div>
       <div class="form-submit">
         <button type="submit" class="submit-btn">Dodaj Izlet</button>
       </div>
     </form>
+  </div>
+  <div *ngIf="submitted" class="post-place-container">
+    <p class="submit-description">
+      Izlet je bil uspešno shranjen v podatkovno bazo.
+    </p>
+    <button routerLink="/" class="submit-btn">Domov</button>
   </div>
 </div>

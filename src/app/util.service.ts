@@ -6,20 +6,6 @@ import { Injectable } from '@angular/core';
 export class UtilService {
   constructor() {}
 
-  // pretvarjanje števila cen v nize
-  getBudget(budget: number): string {
-    switch (budget) {
-      case 1:
-        return '€';
-      case 2:
-        return '€€';
-      case 3:
-        return '€€€';
-      default:
-        return 'No budget';
-    }
-  }
-
   setBudget(budget: number): string {
     switch (budget) {
       case 1:
@@ -28,6 +14,17 @@ export class UtilService {
         return '€€';
       default:
         return '€€€';
+    }
+  }
+
+  setTripType(tripType: string) {
+    switch (tripType) {
+      case 'Nature':
+        return 'Narava';
+      case 'Sports':
+        return 'Šport';
+      default:
+        return 'Kultura';
     }
   }
 

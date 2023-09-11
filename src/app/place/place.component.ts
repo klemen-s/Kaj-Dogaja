@@ -24,7 +24,7 @@ export class PlaceComponent {
   ) {}
 
   getBudget(): string {
-    return this.util.getBudget(this.place.budget);
+    return this.util.setBudget(this.place.budget);
   }
 
   getPlace() {

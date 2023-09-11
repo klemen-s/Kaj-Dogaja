@@ -1,14 +1,15 @@
 .post-place-wrapper {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 3rem 0;
 }
 
 .post-place-container {
-  height: 90%;
+  height: 100%;
   width: 90%;
   border: 1px solid #bebebe;
   border-radius: 2rem;
@@ -19,6 +20,7 @@
   padding-top: 2rem;
   color: black;
   font-family: "SF-Regular";
+  padding-bottom: 2rem;
 }
 
 .post-place-title {
@@ -36,8 +38,9 @@
   flex-direction: column;
   width: 80%;
   height: 3.5rem;
-  margin: 1rem auto;
+  margin: 1.6rem auto;
   font-size: 0.8rem;
+  position: relative;
 }
 
 .form-group label {
@@ -112,6 +115,7 @@
 }
 
 .form-group-added-button {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -138,7 +142,7 @@
 
 .attractions-button {
   cursor: pointer;
-  margin-top: 1rem;
+  margin-top: 2rem;
   border: none;
   height: 2rem;
   width: 50%;
@@ -150,6 +154,7 @@
 }
 
 .form-submit {
+  margin-top: 3rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -166,4 +171,40 @@
   font-family: "SF-Medium";
   font-size: 1.3rem;
   cursor: pointer;
+}
+
+.post-place-error {
+  position: absolute;
+  top: 60px;
+  font-size: 0.65rem;
+  margin-left: 0.1rem;
+  margin-top: 0.1rem;
+  color: red;
+}
+
+.attractions-number {
+  position: absolute;
+  margin-left: 0.1rem;
+  margin-top: 0.3rem;
+  top: 120px;
+  font-size: 0.75rem;
+}
+
+.post-place-error-added-button {
+  position: absolute;
+  top: 60px;
+  font-size: 0.65rem;
+  margin-left: 0.2rem;
+  margin-top: 0.1rem;
+  color: red;
+}
+
+.submit-description {
+  margin-bottom: 2rem;
+}
+
+.post-place-container-submit {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
 }

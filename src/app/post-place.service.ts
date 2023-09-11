@@ -6,20 +6,26 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PostPlaceService {
+  jwt = localStorage.getItem('jwt');
+  headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Authorization', 'Bearer ' + this.jwt);
+
   constructor(private http: HttpClient) {}
 
   checkPlaceName(placeName: string): Observable<Boolean> {
-    const jwt = localStorage['get']('jwt');
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Authorization', 'Bearer ' + jwt);
-
-    // back-end validation
-    // post http request
     return this.http.post<Boolean>(
       'http://localhost:8080/post-place/placeName',
       { placeName: placeName },
-      { headers: headers }
+      { headers: this.headers }
+    );
+  }
+
+  addPlace(place: any): Observable<any> {
+    return this.http.post(
+      'http://localhost:8080/post-place',
+      { place: place },
+      { headers: this.headers }
     );
   }
 }

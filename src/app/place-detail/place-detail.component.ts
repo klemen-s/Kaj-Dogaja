@@ -39,7 +39,7 @@ export class PlaceDetailComponent implements OnInit {
       return '';
     }
 
-    return this.util.getBudget(this.place.budget);
+    return this.util.setBudget(this.place.budget);
   }
 
   getAttractions(): string {
