@@ -14,6 +14,7 @@
           [(ngModel)]="placeName"
           name="placeName"
           #placeNameVariable="ngModel"
+          required
         />
         <div *ngIf="placeNameInvalid()" class="post-place-error">
           Prekratko ime za izlet.

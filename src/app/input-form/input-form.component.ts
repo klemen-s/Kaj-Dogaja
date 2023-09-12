@@ -26,14 +26,14 @@ export class InputFormComponent {
   constructor(private backend: BackendService, private router: Router) {}
 
   getPlaces(tripType: string, budget: number, region: string) {
-    if (tripType == '') {
+    if (tripType.trim() === '') {
       this.tripTypeErrorMessage = 'Prosim, če izbereš tip izleta.';
       this.tripTypeError = true;
       return;
     }
     this.tripTypeError = false;
 
-    if (region == '') {
+    if (region.trim() === '') {
       this.regionErrorMessage = 'Prosim, če izbereš regijo izleta.';
       this.regionError = true;
       return;
