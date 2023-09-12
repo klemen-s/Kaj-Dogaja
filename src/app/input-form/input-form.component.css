@@ -1,11 +1,11 @@
 .submit-button {
   color: white;
   background-color: var(--main-color);
-  width: 11.75rem;
-  height: 2.375rem;
+  width: 5.75rem;
+  height: 2rem;
   border-radius: 1.25rem;
   border: none;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   cursor: pointer;
 }
 
@@ -14,7 +14,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  height: 50vh;
+  width: 100%;
+}
+
+.select-trip-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  color: var(--main-color);
 }
 
 #region {

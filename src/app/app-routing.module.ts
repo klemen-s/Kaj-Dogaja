@@ -6,6 +6,7 @@ import { PlaceDetailComponent } from './place-detail/place-detail.component';
 import { LoginComponent } from './login/login.component';
 import { PostPlaceComponent } from './post-place/post-place.component';
 import { postPlaceGuardGuard } from './post-place-guard.guard';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: 'admin/login', component: LoginComponent },
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   { path: 'places/:placeId', component: PlaceDetailComponent },
   { path: 'places', component: PlacesComponent },
-  { path: '', component: InputFormComponent },
+  { path: '', component: HomeComponent },
 ];
 
 @NgModule({

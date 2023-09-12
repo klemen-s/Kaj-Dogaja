@@ -1,0 +1,54 @@
+.home-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-display {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  color: white;
+  font-size: 2.5rem;
+}
+
+.home-title {
+  width: 80%;
+  text-align: center;
+}
+
+.home-title-1 {
+  margin-bottom: 2.5rem;
+}
+
+.home-title-2 {
+  font-size: 1rem;
+}
+
+.home-scroll-down {
+  font-size: 1rem;
+  position: absolute;
+  bottom: 30px;
+  text-align: center;
+  animation: scroll-down 1s infinite;
+}
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

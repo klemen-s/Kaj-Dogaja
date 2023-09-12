@@ -1,4 +1,5 @@
 <div class="select-trip">
+  <h1 class="select-trip-title">Najdite Svoj Izlet</h1>
   <div id="trip-type">
     <div class="error-msg-trip-type" *ngIf="tripTypeError">
       <p>{{ tripTypeErrorMessage }}</p>
@@ -43,7 +44,7 @@
     class="submit-button"
     (click)="getPlaces(selectedTripType, selectedBudget, selectedRegion)"
   >
-    Najdi svoj izlet
+    Išči
   </button>
   <div class="info-msg" *ngIf="infoMsg">
     <p class="dialogue-text">{{ infoMsg }}</p>
