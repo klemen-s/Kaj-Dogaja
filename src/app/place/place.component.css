@@ -7,14 +7,16 @@
   border: 1px solid #dbdbdb;
   border-radius: 1.25rem;
   color: #656565;
-  max-height: 8rem;
   cursor: pointer;
 }
 
 .place-upper-wrapper {
   width: 100%;
-  height: 3rem;
+  min-height: 3rem;
   border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .place-upper {
@@ -34,14 +36,17 @@
 
 .place-lower {
   width: 90%;
-  height: 6rem;
+  height: 5rem;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
 .place-description {
+  width: 100%;
+  height: 100%;
   padding: 1rem 0;
   font-family: "SF-Regular";
-  color: #aaa9a9
+  color: #aaa9a9;
+  word-wrap: break-word;
 }

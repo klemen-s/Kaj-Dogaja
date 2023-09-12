@@ -60,6 +60,7 @@
 .place-detail-description {
   font-family: "SF-Regular";
   white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .place-detail-attractions {
