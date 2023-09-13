@@ -9,3 +9,15 @@
   width: 90%;
   margin-bottom: 3rem;
 }
+
+@media screen and (min-width: 1200px) {
+  /* dodaj flex-wrap */
+  .container {
+    width: 1000%;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

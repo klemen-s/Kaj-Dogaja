@@ -1,44 +1,46 @@
 <div class="select-trip">
   <h1 class="select-trip-title">Najdite Svoj Izlet</h1>
-  <div id="trip-type">
-    <div class="error-msg-trip-type" *ngIf="tripTypeError">
-      <p>{{ tripTypeErrorMessage }}</p>
+  <div class="select-trip-form">
+    <div id="trip-type">
+      <div class="error-msg-trip-type" *ngIf="tripTypeError">
+        <p>{{ tripTypeErrorMessage }}</p>
+      </div>
+      <select
+        [class]="{
+          'input-select': tripTypeError === false,
+          'error-input-select': tripTypeError === true
+        }"
+        [(ngModel)]="selectedTripType"
+      >
+        <option value="" disabled selected hidden>Tip Izleta</option>
+        <option value="Nature">Narava</option>
+        <option value="Culture">Kultura</option>
+      </select>
     </div>
-    <select
-      [class]="{
-        'input-select': tripTypeError === false,
-        'error-input-select': tripTypeError === true
-      }"
-      [(ngModel)]="selectedTripType"
-    >
-      <option value="" disabled selected hidden>Tip Izleta</option>
-      <option value="Nature">Narava</option>
-      <option value="Culture">Kultura</option>
-    </select>
-  </div>
-  <div id="region">
-    <div class="error-msg-region" *ngIf="regionError">
-      <p>{{ regionErrorMessage }}</p>
+    <div id="region">
+      <div class="error-msg-region" *ngIf="regionError">
+        <p>{{ regionErrorMessage }}</p>
+      </div>
+      <select
+        [class]="{
+          'input-select': regionError === false,
+          'error-input-select': regionError === true
+        }"
+        [(ngModel)]="selectedRegion"
+      >
+        <option value="" disabled selected hidden>Regija</option>
+        <option value="Gorenjska">Gorenjska</option>
+      </select>
     </div>
-    <select
-      [class]="{
-        'input-select': regionError === false,
-        'error-input-select': regionError === true
-      }"
-      [(ngModel)]="selectedRegion"
-    >
-      <option value="" disabled selected hidden>Regija</option>
-      <option value="Gorenjska">Gorenjska</option>
-    </select>
-  </div>
-  <div id="budget">
-    <select class="input-select" [(ngModel)]="selectedBudget" id="budget">
-      <option value="" disabled selected hidden>Budget</option>
-      <option value="0">Vsi</option>
-      <option value="1">Poceni</option>
-      <option value="2">Srednje</option>
-      <option value="3">Drago</option>
-    </select>
+    <div id="budget">
+      <select class="input-select" [(ngModel)]="selectedBudget" id="budget">
+        <option value="" disabled selected hidden>Budget</option>
+        <option value="0">Vsi</option>
+        <option value="1">Poceni</option>
+        <option value="2">Srednje</option>
+        <option value="3">Drago</option>
+      </select>
+    </div>
   </div>
   <button
     class="submit-button"

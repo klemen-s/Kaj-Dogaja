@@ -1,4 +1,4 @@
-<div class="place" (click)="getPlace()">
+<div *ngIf="!isDesktop" class="place" (click)="getPlace()">
   <div class="place-upper-wrapper">
     <div class="place-upper">
       <h1 class="place-title">{{ this.place.placeName }}</h1>
@@ -7,5 +7,22 @@
   </div>
   <div class="place-lower">
     <p class="place-description">{{ getQuickSummary() }}</p>
+  </div>
+</div>
+
+<div *ngIf="isDesktop" class="place" (click)="getPlace()">
+  <div class="place-upper-wrapper">
+    <div class="place-upper">
+      <div *ngIf="isDesktop" class="place-image-wrapper">
+        <img class="place-image" src="{{ this.place.imageUrl }}" alt="" />
+      </div>
+    </div>
+  </div>
+  <div class="place-lower">
+    <div class="place-lower-title-budget">
+      <h1 class="place-title">{{ this.place.placeName }}</h1>
+      <span class="place-budget">{{ getBudget() }}</span>
+    </div>
+    <p class="place-description">{{ getQuickSummaryDesktop() }}</p>
   </div>
 </div>
