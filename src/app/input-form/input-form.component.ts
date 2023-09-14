@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BackendService } from '../backend.service';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./input-form.component.css'],
 })
 export class InputFormComponent {
+  submitted: boolean = false;
+
   selectedTripType: string = '';
   selectedRegion: string = '';
   selectedBudget: number = 0;
@@ -15,8 +17,8 @@ export class InputFormComponent {
   regionError: boolean = false;
   tripTypeError: boolean = false;
 
-  regionErrorMessage: string = '';
-  tripTypeErrorMessage: string = '';
+  regionErrorMessage: string = 'Prosim, če izbereš regijo izleta.';
+  tripTypeErrorMessage: string = 'Prosim, če izbereš tip izleta';
 
   errorMsg?: string;
   infoMsg?: string;
@@ -25,16 +27,42 @@ export class InputFormComponent {
 
   constructor(private backend: BackendService, private router: Router) {}
 
+  isTripTypeInvalid() {
+    if (this.selectedTripType.trim() === '') {
+      this.tripTypeError = true;
+    } else {
+      this.tripTypeError = false;
+    }
+    return this.tripTypeError;
+  }
+
+  updateSelectedTripType(value: string) {
+    this.selectedTripType = value;
+    this.tripTypeError = false;
+  }
+
+  isRegionInvalid() {
+    if (this.selectedRegion.trim() === '') {
+      this.regionError = true;
+    } else {
+      this.regionError = false;
+    }
+    return this.regionError;
+  }
+
+  updateSelectedRegion(value: string) {
+    this.selectedRegion = value;
+    this.regionError = false;
+  }
+
   getPlaces(tripType: string, budget: number, region: string) {
     if (tripType.trim() === '') {
-      this.tripTypeErrorMessage = 'Prosim, če izbereš tip izleta.';
       this.tripTypeError = true;
       return;
     }
     this.tripTypeError = false;
 
     if (region.trim() === '') {
-      this.regionErrorMessage = 'Prosim, če izbereš regijo izleta.';
       this.regionError = true;
       return;
     }

@@ -93,7 +93,7 @@
 
 .error-msg-trip-type {
   width: 18.875rem;
-  height: 0.5rem;
+  height: 0.6rem;
   font-size: 0.6rem;
   color: rgb(245, 67, 67);
   text-align: start;
@@ -106,7 +106,7 @@
 
 .error-msg-region {
   width: 18.875rem;
-  height: 0.5rem;
+  height: 0.6rem;
   font-size: 0.6rem;
   color: rgb(245, 67, 67);
   text-align: start;
@@ -260,8 +260,9 @@
   }
 
   .error-input-select {
-    width: 20rem;
-    height: 3.5rem;
+    font-size: 1rem;
+    width: 18.875rem;
+    height: 2.625rem;
     margin-bottom: 1.1rem;
     background-color: rgb(245, 67, 67);
     border: 1px solid rgb(192, 6, 6);
@@ -287,10 +288,26 @@
       ),
       linear-gradient(135deg, var(--main-color) 50%, transparent 50%),
       linear-gradient(to right, white, white);
-    background-position: calc(100% - 20px) calc(1em + 2px),
-      calc(100% - 15px) calc(1em + 2px), 100% 0;
+    background-position: calc(100% - 20px) calc(1em + 8px),
+      calc(100% - 15px) calc(1em + 8px), 100% 0;
     background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
     background-repeat: no-repeat;
+  }
+
+  .error-input-select:focus {
+    background-image: linear-gradient(
+        45deg,
+        var(--main-color) 50%,
+        transparent 50%
+      ),
+      linear-gradient(135deg, transparent 50%, var(--main-color) 50%),
+      linear-gradient(to right, white, white);
+    background-position: calc(100% - 15px) 1.5em, calc(100% - 20px) 1.5em,
+      100% 0;
+    background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+    background-repeat: no-repeat;
+    border-color: grey;
+    outline: 0;
   }
 
   .error-msg-trip-type {

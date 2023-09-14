@@ -1,8 +1,11 @@
 <div class="select-trip">
   <h1 class="select-trip-title">Najdite Svoj Izlet</h1>
-  <div class="select-trip-form">
+  <form class="select-trip-form" #selectTripForm="ngForm">
     <div id="trip-type">
-      <div class="error-msg-trip-type" *ngIf="tripTypeError">
+      <div
+        class="error-msg-trip-type"
+        *ngIf="tripTypeError || (tripType.touched && isTripTypeInvalid())"
+      >
         <p>{{ tripTypeErrorMessage }}</p>
       </div>
       <select
@@ -11,6 +14,9 @@
           'error-input-select': tripTypeError === true
         }"
         [(ngModel)]="selectedTripType"
+        (ngModelChange)="updateSelectedTripType($event)"
+        #tripType="ngModel"
+        name="selectedTripType"
       >
         <option value="" disabled selected hidden>Tip Izleta</option>
         <option value="Nature">Narava</option>
@@ -18,7 +24,10 @@
       </select>
     </div>
     <div id="region">
-      <div class="error-msg-region" *ngIf="regionError">
+      <div
+        class="error-msg-region"
+        *ngIf="regionError || (region.touched && isRegionInvalid())"
+      >
         <p>{{ regionErrorMessage }}</p>
       </div>
       <select
@@ -27,13 +36,21 @@
           'error-input-select': regionError === true
         }"
         [(ngModel)]="selectedRegion"
+        (ngModelChange)="updateSelectedRegion($event)"
+        name="selectedRegion"
+        #region="ngModel"
       >
         <option value="" disabled selected hidden>Regija</option>
         <option value="Gorenjska">Gorenjska</option>
       </select>
     </div>
     <div id="budget">
-      <select class="input-select" [(ngModel)]="selectedBudget" id="budget">
+      <select
+        class="input-select"
+        [(ngModel)]="selectedBudget"
+        id="budget"
+        name="selectedBudget"
+      >
         <option value="" disabled selected hidden>Budget</option>
         <option value="0">Vsi</option>
         <option value="1">Poceni</option>
@@ -41,7 +58,7 @@
         <option value="3">Drago</option>
       </select>
     </div>
-  </div>
+  </form>
   <button
     class="submit-button"
     (click)="getPlaces(selectedTripType, selectedBudget, selectedRegion)"
