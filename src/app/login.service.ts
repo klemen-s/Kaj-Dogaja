@@ -3,11 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { ErrorService } from './error.service';
 import { BehaviorSubject, Observable, catchError } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
+  url = environment.serverUrl;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   isLoggedIn = new BehaviorSubject(false);
@@ -26,7 +28,7 @@ export class LoginService {
   login(username: string, password: string) {
     return this.http
       .post<any>(
-        'http://localhost:8080/admin/login',
+        this.url + '/admin/login',
         { username: username, password: password },
         { headers: this.headers }
       )

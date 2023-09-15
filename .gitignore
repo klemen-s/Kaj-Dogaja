@@ -40,9 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-<<<<<<< HEAD
-=======
 
 # Environment Variables
 /src/environments
->>>>>>> 834da05 (Deployment ready)

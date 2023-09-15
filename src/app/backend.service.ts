@@ -1,14 +1,16 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, throwError, Observable, BehaviorSubject } from 'rxjs';
+import { catchError, Observable, BehaviorSubject } from 'rxjs';
 import { Place } from './place';
 import { QueryParamsService } from './query-params.service';
 import { ErrorService } from './error.service';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BackendService {
+  url = environment.serverUrl;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   private places = new BehaviorSubject<any>([]);
@@ -60,7 +62,7 @@ export class BackendService {
     });
 
     return this.http
-      .get<Place[]>('http://localhost:8080/get-places', { params: params })
+      .get<Place[]>(this.url + '/get-places', { params: params })
       .pipe(catchError(this.errorHandler.errorHandler));
   }
 
@@ -73,7 +75,7 @@ export class BackendService {
 
     return this.http
       .post(
-        'http://localhost:8080/post-places',
+        this.url + '/post-places',
         { place: { ...place } }, // placeholder za, pozneje, podatke o novem izletu
         {
           headers: postHeaders,
@@ -91,14 +93,14 @@ export class BackendService {
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${jwt}`);
 
-    return this.http.get('http://localhost:8080/is-auth', {
+    return this.http.get(this.url + '/is-auth', {
       headers: authHeaders,
     });
   }
 
   getPlace(placeId: string) {
     return this.http
-      .get<any>('http://localhost:8080/places/' + placeId)
+      .get<any>(this.url + '/places/' + placeId)
       .pipe(catchError(this.errorHandler.errorHandler));
   }
 

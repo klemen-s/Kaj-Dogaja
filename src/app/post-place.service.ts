@@ -1,11 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostPlaceService {
+  url = environment.serverUrl;
+
   jwt = localStorage.getItem('jwt');
   headers = new HttpHeaders()
     .set('Content-Type', 'application/json')
@@ -15,7 +18,7 @@ export class PostPlaceService {
 
   checkPlaceName(placeName: string): Observable<Boolean> {
     return this.http.post<Boolean>(
-      'http://localhost:8080/post-place/placeName',
+      this.url + '/post-place/placeName',
       { placeName: placeName },
       { headers: this.headers }
     );
@@ -23,7 +26,7 @@ export class PostPlaceService {
 
   addPlace(place: any): Observable<any> {
     return this.http.post(
-      'http://localhost:8080/post-place',
+      this.url + '/post-place',
       { place: place },
       { headers: this.headers }
     );
