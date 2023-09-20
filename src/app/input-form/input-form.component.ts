@@ -8,6 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./input-form.component.css'],
 })
 export class InputFormComponent {
+  regions: string[] = [
+    'Gorenjska',
+    'Primorska',
+    'Prekmurje',
+    'Štajerska',
+    'Dolenjska',
+  ];
+
   submitted: boolean = false;
 
   selectedTripType: string = '';

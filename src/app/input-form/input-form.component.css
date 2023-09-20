@@ -17,6 +17,8 @@
   margin-top: 1rem;
   height: 50vh;
   width: 100%;
+  position: relative;
+  font-family: "SF-Regular";
 }
 
 .select-trip-title {
@@ -24,6 +26,7 @@
   margin-bottom: 3rem;
   font-size: 2rem;
   color: var(--main-color);
+  font-family: "SF-Bold";
 }
 
 #region {
@@ -31,6 +34,7 @@
   height: 2.625rem;
   margin-bottom: 2rem;
   position: relative;
+  font-family: "SF-Medium";
 }
 
 #trip-type {
@@ -38,6 +42,7 @@
   height: 2.625rem;
   margin-bottom: 2rem;
   position: relative;
+  font-family: "SF-Medium";
 }
 
 #budget {
@@ -45,10 +50,11 @@
   height: 2.625rem;
   margin-bottom: 1.3rem;
   position: relative;
+  font-family: "SF-Medium";
 }
 
 .input-select {
-  font-family: "SF-Medium";
+  font-family: "SF-Regular";
   background-color: white;
   width: 100%;
   height: 100%;
@@ -89,6 +95,7 @@
   background-repeat: no-repeat;
   border-color: grey;
   outline: 0;
+  font-family: "SF-Regular";
 }
 
 .error-msg-trip-type {
@@ -97,7 +104,6 @@
   font-size: 0.6rem;
   color: rgb(245, 67, 67);
   text-align: start;
-  font-family: "SF-Medium";
   box-sizing: content-box;
   padding-left: 0.5rem;
   position: absolute;
@@ -110,7 +116,6 @@
   font-size: 0.6rem;
   color: rgb(245, 67, 67);
   text-align: start;
-  font-family: "SF-Medium";
   box-sizing: content-box;
   padding-left: 0.5rem;
   position: absolute;
@@ -127,7 +132,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 1.5rem;
-  font-family: "SF-Regular";
+  position: absolute;
+  bottom: 10px;
 }
 
 .error-input-select {
@@ -136,13 +142,11 @@
   margin-bottom: 1.1rem;
   background-color: rgb(245, 67, 67);
   border: 1px solid rgb(192, 6, 6);
-  font-family: "SF-Regular";
   background-color: white;
   width: 100%;
   height: 100%;
   border-radius: 1.25rem;
   color: var(--main-color);
-  font-weight: 700;
   margin: 0;
   padding: 10px;
   -webkit-box-sizing: border-box;
@@ -162,6 +166,7 @@
     calc(100% - 15px) calc(1em + 2px), 100% 0;
   background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
   background-repeat: no-repeat;
+  font-family: "SF-Regular";
 }
 
 .error-input-select:focus {
@@ -177,6 +182,7 @@
   background-repeat: no-repeat;
   border-color: grey;
   outline: 0;
+  font-family: "SF-Regular";
 }
 
 @media screen and (min-width: 1200px) {
@@ -204,6 +210,7 @@
     width: 20rem;
     height: 3.5rem;
     position: relative;
+    font-family: "SF-Regular";
   }
 
   .input-select {
@@ -211,7 +218,6 @@
   }
 
   .input-select {
-    font-family: "SF-Medium";
     background-color: white;
     width: 100%;
     height: 100%;
@@ -266,13 +272,11 @@
     margin-bottom: 1.1rem;
     background-color: rgb(245, 67, 67);
     border: 1px solid rgb(192, 6, 6);
-    font-family: "SF-Regular";
     background-color: white;
     width: 100%;
     height: 100%;
     border-radius: 1.25rem;
     color: var(--main-color);
-    font-weight: 700;
     margin: 0;
     padding: 10px;
     -webkit-box-sizing: border-box;

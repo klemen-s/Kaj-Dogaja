@@ -40,8 +40,10 @@
         name="selectedRegion"
         #region="ngModel"
       >
-        <option value="" disabled selected hidden>Regija</option>
-        <option value="Gorenjska">Gorenjska</option>
+        <option value="" disabled hidden selected>Regija</option>
+        <option *ngFor="let reg of regions" [value]="reg">
+          {{ reg }}
+        </option>
       </select>
     </div>
     <div id="budget">

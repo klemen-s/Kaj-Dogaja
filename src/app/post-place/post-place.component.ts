@@ -15,14 +15,20 @@ export class PostPlaceComponent {
 
   budgetValues: number[] = [1, 2, 3];
   tripTypes: string[] = ['Nature', 'Culture', 'Sports'];
-  regions: string[] = ['Gorenjska'];
+  regions: string[] = [
+    'Gorenjska',
+    'Dolenjska',
+    'Primorska',
+    'Štajerska',
+    'Prekmurje',
+  ];
 
   placeName: string = '';
   coordinates: string = ''; // oblika : "lat, lon"
   imageUrl: string = '';
   description: string = '';
   tripType: string = 'Nature';
-  region: string = 'Gorenjska'; // regije še pridejo
+  region: string = 'Gorenjska';
   budget: number = 1;
   attraction: string = '';
   attractions: string[] = [];
