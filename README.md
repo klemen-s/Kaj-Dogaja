@@ -1,4 +1,4 @@
-# 🏞️ Kaj-Dogaja
+# 🏞️ Kaj Dogaja
 
 This web application, built using Angular and TypeScript, is designed to help users explore interesting places in various regions of Slovenia based on their preferences. Users can select a region, specify trip types (Nature, Culture, etc.), set budget preferences, and discover places accordingly.
 
