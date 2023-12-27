@@ -1,27 +1,22 @@
-# Client
+# 🏞️ Kaj-Dogaja
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+This web application, built using Angular and TypeScript, is designed to help users explore interesting places in various regions of Slovenia based on their preferences. Users can select a region, specify trip types (Nature, Culture, etc.), set budget preferences, and discover places accordingly.
 
-## Development server
+## 🚀 Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Region Selection**: Choose a region in Slovenia for exploration.
+- **Trip Type Filters**: Filter places by trip type (Nature, Culture, etc.).
+- **Budget Filters**: Specify budget preferences (Low, Medium, High, or All).
+- **Place Listings**: Query data from a database to display places.
+- **Detailed Information**: Click on listings to view additional details about the places.
+- **Admin Functionality**: Ability to add additional places as an admin.
 
-## Code scaffolding
+## 🛠️ Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![Angular Badge](https://img.shields.io/badge/Angular-a6120d?logo=angular&logoColor=fff&style=for-the-badge)
+![TypeScript Badge](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=for-the-badge)
+![CSS3 Badge](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=fff&style=for-the-badge)
 
-## Build
+## ℹ About the App
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Kaj-Dogaja is a web application aimed at providing users with an easy way to discover interesting places in different regions of Slovenia. By utilizing Angular and TypeScript, it allows users to set their preferences and filter through various destinations. Additionally, administrators have the ability to add new places to the database, enhancing the platform's offerings for users.
