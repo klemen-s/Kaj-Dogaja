@@ -20,3 +20,6 @@ This web application, built using Angular and TypeScript, is designed to help us
 ## ℹ About the App
 
 Kaj-Dogaja is a web application aimed at providing users with an easy way to discover interesting places in different regions of Slovenia. By utilizing Angular and TypeScript, it allows users to set their preferences and filter through various destinations. Additionally, administrators have the ability to add new places to the database, enhancing the platform's offerings for users.
+
+## Other repositories
+### [Kaj Dogaja BE](https://github.com/klemen-s/Kaj-Dogaja-BE.git)
