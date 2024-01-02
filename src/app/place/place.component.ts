@@ -36,23 +36,6 @@ export class PlaceComponent {
   }
 
   getQuickSummaryDesktop(): string {
-    const description = this.place.description.split('\n');
-    let text = '';
-
-    if (description.indexOf('Zgodovina') === -1) {
-      for (let i = 0; i < 3; i++) {
-        text += description[i] + '\n';
-      }
-    } else {
-      for (let i = 0; i < 5; i++) {
-        if (description[i] !== 'Zgodovina') {
-          text += description[i] + '\n';
-        } else {
-          continue;
-        }
-      }
-    }
-
-    return text;
+    return this.place.description.substring(0, 250) + '...';
   }
 }
